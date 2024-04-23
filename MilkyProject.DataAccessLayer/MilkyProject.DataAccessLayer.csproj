@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Concrete\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MilkyProject.EntityLayer\MilkyProject.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
