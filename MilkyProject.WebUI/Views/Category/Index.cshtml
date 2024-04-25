@@ -1,0 +1,32 @@
+﻿@model List<MilkyProject.WebUI.Dtos.Category.ResultCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h1>Kategori Listesi</h1>
+    <hr />
+    <div class="row">
+        <div class="col-12"">
+            <table class="table table-hover table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Kategori Adı</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+        @foreach (var item in Model)
+        {<tr>
+            <td>@item.CategoryId</td>
+            <td>@item.Name</td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-info">Güncelle</a></td>
+        </tr>
+        }
+            </table>
+            <a href="#" class="btn btn-primary">Yeni kategori</a>
+        </div>
+    </div>
+</div>
+
+
