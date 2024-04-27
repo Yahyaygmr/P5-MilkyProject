@@ -27,8 +27,8 @@ namespace MilkyProject.WebAPI.Controllers
             _categoryService.TInsert(category);
             return Ok("Kategori başarıyla eklendi.");
         }
-        [HttpDelete]
-        public IActionResult CreateCategory(int id)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteCategory(int id)
         {
             _categoryService.TDelete(id);
             return Ok("Kategori başarıyla Silindi.");
@@ -45,7 +45,5 @@ namespace MilkyProject.WebAPI.Controllers
             var value = _categoryService.TGetById(id);
             return Ok(value);
         }
-
-
     }
 }

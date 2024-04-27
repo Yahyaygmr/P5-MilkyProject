@@ -1,0 +1,28 @@
+﻿@model MilkyProject.WebUI.Dtos.Product.UpdateProductDto
+@{
+    ViewData["Title"] = "UpdateProduct";
+}
+
+
+<form method="post">
+    <input asp-for="productId"/>
+    <br />
+    <label>ÜrünAdı</label>
+    <input type="text" asp-for="name" />
+    <br />
+    <label>Eski Fiyat</label>
+    <input type="text" asp-for="oldPrice" />
+    <br />
+    <label>Yeni Fiyat</label>
+    <input type="text" asp-for="newPrice" />
+    <br />
+    <label>Görsel</label>
+    <input type="text" asp-for="imageUrl" />
+    <br />
+    <label>Durum</label>
+    <input type="text" asp-for="status" />
+    <br />
+    <button class="btn btn-info">Ekle</button>
+
+</form>
+

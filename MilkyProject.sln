@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkyProject.BusinessLayer"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkyProject.DtoLayer", "MilkyProject.DtoLayer\MilkyProject.DtoLayer.csproj", "{FF2C4D4E-56D4-4451-9CB5-54063AB9011D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilkyProject.WebUI", "MilkyProject.WebUI\MilkyProject.WebUI.csproj", "{0BEEBD05-903D-48DA-B000-45EC55D7EFA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MilkyProject.WebUI", "MilkyProject.WebUI\MilkyProject.WebUI.csproj", "{0BEEBD05-903D-48DA-B000-45EC55D7EFA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

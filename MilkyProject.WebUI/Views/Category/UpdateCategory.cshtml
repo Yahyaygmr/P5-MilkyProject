@@ -1,0 +1,19 @@
+﻿@model MilkyProject.WebUI.Dtos.Category.UpdateCategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+}
+
+<div class="container">
+    <h1>Kategori Güncelle</h1>
+    <hr />
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                <input type="hidden" asp-for="CategoryId" />
+                <label>Kategori Adı</label>
+                <input type="text" asp-for="Name" class="form-control"/>
+                <button class="btn btn-primary">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
