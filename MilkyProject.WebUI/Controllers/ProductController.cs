@@ -86,5 +86,19 @@ namespace MilkyProject.WebUI.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:44374/api/Products/GetProductWithCategory");
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
     }
 }

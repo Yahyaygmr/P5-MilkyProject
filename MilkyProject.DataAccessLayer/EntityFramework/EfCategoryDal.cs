@@ -12,8 +12,15 @@ namespace MilkyProject.DataAccessLayer.EntityFramework
 {
     public class EfCategoryDal : GenericRepository<Category>, ICategoryDal
     {
+        private readonly MilkyContext _context;
         public EfCategoryDal(MilkyContext context) : base(context)
         {
+            _context = context;
+        }
+
+        public int GetCategoryCount()
+        {
+            return _context.Categories.Count();
         }
     }
 }
