@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("LayoutHeadComponentPartial")
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    @await Component.InvokeAsync("LayoutTopbarComponentPartial")
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    @await Component.InvokeAsync("LayoutNavbarComponentPartial")
+   
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    @await Component.InvokeAsync("LayoutSliderComponentPartial")
+   
+    <!-- Carousel End -->
+    <!-- About Start -->
+    @await Component.InvokeAsync("LayoutAboutComponentPartial")
+   
+    <!-- About End -->
+
+
+    <!-- Features Start -->
+    @await Component.InvokeAsync("LayoutWhyUsComponentPartial")
+
+    <!-- Features End -->
+
+
+    <!-- Banner Start -->
+    @await Component.InvokeAsync("LayoutBannerComponentPartial")
+   
+    <!-- Banner End -->
+
+
+    <!-- Service Start -->
+    @await Component.InvokeAsync("LayoutServiceComponentPartial")
+ 
+    <!-- Service End -->
+
+
+    <!-- Gallery Start -->
+    @await Component.InvokeAsync("LayoutGalleryComponentPartial")
+ 
+    <!-- Gallery End -->
+
+
+    <!-- Product Start -->
+    @await Component.InvokeAsync("LayoutProductComponentPartial")
+  
+    <!-- Product End -->
+
+
+    <!-- Team Start -->
+    @await Component.InvokeAsync("LayoutTeamComponentPartial")
+   
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    @await Component.InvokeAsync("LayoutTestimonialComponentPartial")
+  
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    @await Component.InvokeAsync("LayoutFooterComponentPartial")
+   
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid bg-secondary text-body copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="fw-semi-bold" href="#">Your Site Name</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed By <a class="fw-semi-bold" href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    @await Component.InvokeAsync("LayoutScriptsComponentPartial")
+
+
+</body>
+
+</html>

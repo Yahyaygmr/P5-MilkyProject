@@ -76,6 +76,10 @@ namespace MilkyProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(dto);
+            }
             var client = _httpClientFactory.CreateClient();
 
             var jsonData = JsonConvert.SerializeObject(dto);

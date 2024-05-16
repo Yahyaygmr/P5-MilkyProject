@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MilkyProject.EntityLayer.Concrete
 {
-    public class Slider
+    public class BusinessHour
     {
-        public int SliderId { get; set; }
-        public string? ImageUrl { get; set; }
-        public string? Description1 { get; set; }
-        public string? Description2 { get; set; }
+        public int BusinessHourId { get; set; }
+        public string Day { get; set; }
+        public string Hours { get; set; }
         public bool Status { get; set; }
     }
 }

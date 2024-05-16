@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MilkyProject.EntityLayer.Concrete
 {
-    public class Slider
+    public class AboutUsService
     {
-        public int SliderId { get; set; }
-        public string? ImageUrl { get; set; }
-        public string? Description1 { get; set; }
-        public string? Description2 { get; set; }
+        public int AboutUsServiceId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Icon { get; set; }
         public bool Status { get; set; }
     }
 }
