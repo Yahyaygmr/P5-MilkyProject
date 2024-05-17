@@ -25,58 +25,9 @@
     @await Component.InvokeAsync("LayoutNavbarComponentPartial")
    
     <!-- Navbar End -->
-
-
-    <!-- Carousel Start -->
-    @await Component.InvokeAsync("LayoutSliderComponentPartial")
-   
-    <!-- Carousel End -->
-    <!-- About Start -->
-    @await Component.InvokeAsync("LayoutAboutComponentPartial")
-   
-    <!-- About End -->
-
-
-    <!-- Features Start -->
-    @await Component.InvokeAsync("LayoutWhyUsComponentPartial")
-
-    <!-- Features End -->
-
-
-    <!-- Banner Start -->
-    @await Component.InvokeAsync("LayoutBannerComponentPartial")
-   
-    <!-- Banner End -->
-
-
-    <!-- Service Start -->
-    @await Component.InvokeAsync("LayoutServiceComponentPartial")
+    @await Component.InvokeAsync("LayoutPageBannerComponentPartial")
  
-    <!-- Service End -->
-
-
-    <!-- Gallery Start -->
-    @await Component.InvokeAsync("LayoutGalleryComponentPartial")
- 
-    <!-- Gallery End -->
-
-
-    <!-- Product Start -->
-    @await Component.InvokeAsync("LayoutProductComponentPartial")
-  
-    <!-- Product End -->
-
-
-    <!-- Team Start -->
-    @await Component.InvokeAsync("LayoutTeamComponentPartial")
-   
-    <!-- Team End -->
-
-
-    <!-- Testimonial Start -->
-    @await Component.InvokeAsync("LayoutTestimonialComponentPartial")
-  
-    <!-- Testimonial End -->
+   @RenderBody()
 
 
     <!-- Footer Start -->

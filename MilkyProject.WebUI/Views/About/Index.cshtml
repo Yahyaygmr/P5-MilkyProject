@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "Hakkımızda";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+@await Component.InvokeAsync("LayoutAboutComponentPartial")
+@await Component.InvokeAsync("LayoutBannerComponentPartial")
+@await Component.InvokeAsync("LayoutTeamComponentPartial")
+
