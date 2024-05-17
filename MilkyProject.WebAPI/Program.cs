@@ -4,6 +4,7 @@ using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.DataAccessLayer.Context;
 using MilkyProject.DataAccessLayer.EntityFramework;
 using System.Text.Json.Serialization;
+using MilkyProject.BusinessLayer.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,16 +13,7 @@ builder.Services.AddDbContext<MilkyContext>();
 
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
-builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
-
-builder.Services.AddScoped<ISliderDal, EfSliderDal>();
-builder.Services.AddScoped<ISliderService, SliderManager>();
-
-builder.Services.AddScoped<IProductDal, EfProductDal>();
-builder.Services.AddScoped<IProductService, ProductManager>();
-
+builder.Services.ContainerDependencies();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
