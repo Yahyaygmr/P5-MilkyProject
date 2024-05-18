@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class AboutUsServiceManager : IAboutUsServiceService
     {
+        private readonly IAboutUsServiceDal _aboutUsServiceDal;
+
+        public AboutUsServiceManager(IAboutUsServiceDal aboutUsServiceDal)
+        {
+            _aboutUsServiceDal = aboutUsServiceDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _aboutUsServiceDal.Delete(id);
         }
 
         public AboutUsService TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutUsServiceDal.GetById(id);
         }
 
         public List<AboutUsService> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _aboutUsServiceDal.GetListAll();
         }
 
         public void TInsert(AboutUsService entity)
         {
-            throw new NotImplementedException();
+            _aboutUsServiceDal.Insert(entity);
         }
 
         public void TUpdate(AboutUsService entity)
         {
-            throw new NotImplementedException();
+            _aboutUsServiceDal.Update(entity);
         }
     }
 }

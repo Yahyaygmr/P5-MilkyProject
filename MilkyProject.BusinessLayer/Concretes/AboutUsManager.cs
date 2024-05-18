@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,16 @@ using System.Threading.Tasks;
 
 namespace MilkyProject.BusinessLayer.Concretes
 {
+
     public class AboutUsManager : IAboutUsService
     {
+        private readonly IAboutUsDal _aboutUsDal;
+
+        public AboutUsManager(IAboutUsDal aboutUsDal)
+        {
+            _aboutUsDal = aboutUsDal;
+        }
+
         public void TDelete(int id)
         {
             throw new NotImplementedException();
@@ -17,12 +26,12 @@ namespace MilkyProject.BusinessLayer.Concretes
 
         public AboutUs TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _aboutUsDal.GetById(id);
         }
 
         public List<AboutUs> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _aboutUsDal.GetListAll();
         }
 
         public void TInsert(AboutUs entity)
@@ -32,7 +41,7 @@ namespace MilkyProject.BusinessLayer.Concretes
 
         public void TUpdate(AboutUs entity)
         {
-            throw new NotImplementedException();
+            _aboutUsDal.Update(entity);
         }
     }
 }
