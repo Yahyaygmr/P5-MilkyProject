@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class ContactManager : IContactService
     {
+        private readonly IContactDal _contactDal;
+
+        public ContactManager(IContactDal contactDal)
+        {
+            _contactDal = contactDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _contactDal.Delete(id);
         }
 
         public Contact TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _contactDal.GetById(id);
         }
 
         public List<Contact> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _contactDal.GetListAll();
         }
 
         public void TInsert(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Insert(entity);
         }
 
         public void TUpdate(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Update(entity);
         }
     }
 }

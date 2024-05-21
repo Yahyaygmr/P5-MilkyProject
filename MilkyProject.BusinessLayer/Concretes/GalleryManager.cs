@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class GalleryManager : IGalleryService
     {
+        private readonly IGalleryDal _galleryDal;
+
+        public GalleryManager(IGalleryDal galleryDal)
+        {
+            _galleryDal = galleryDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _galleryDal.Delete(id);
         }
 
         public Gallery TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _galleryDal.GetById(id);
         }
 
         public List<Gallery> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _galleryDal.GetListAll();
         }
 
         public void TInsert(Gallery entity)
         {
-            throw new NotImplementedException();
+            _galleryDal.Insert(entity);
         }
 
         public void TUpdate(Gallery entity)
         {
-            throw new NotImplementedException();
+            _galleryDal.Update(entity);
         }
     }
 }

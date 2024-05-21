@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class PageBannerManager : IPageBannerService
     {
+        private readonly IPageBannerDal _pageBannerDal;
+
+        public PageBannerManager(IPageBannerDal pageBannerDal)
+        {
+            _pageBannerDal = pageBannerDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _pageBannerDal.Delete(id);
         }
 
         public PageBanner TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _pageBannerDal.GetById(id);
         }
 
         public List<PageBanner> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _pageBannerDal.GetListAll();
         }
 
         public void TInsert(PageBanner entity)
         {
-            throw new NotImplementedException();
+            _pageBannerDal.Insert(entity);
         }
 
         public void TUpdate(PageBanner entity)
         {
-            throw new NotImplementedException();
+            _pageBannerDal.Update(entity);
         }
     }
 }

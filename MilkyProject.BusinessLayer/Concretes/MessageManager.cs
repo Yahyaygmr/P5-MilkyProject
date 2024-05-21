@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class MessageManager : IMessageService
     {
+        private readonly IMessageDal _messageDal;
+
+        public MessageManager(IMessageDal messageDal)
+        {
+            _messageDal = messageDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _messageDal.Delete(id);
         }
 
         public Message TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.GetById(id);
         }
 
         public List<Message> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _messageDal.GetListAll();
         }
 
         public void TInsert(Message entity)
         {
-            throw new NotImplementedException();
+            _messageDal.Insert(entity);
         }
 
         public void TUpdate(Message entity)
         {
-            throw new NotImplementedException();
+            _messageDal.Update(entity);
         }
     }
 }

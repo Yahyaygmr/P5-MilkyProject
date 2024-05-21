@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class WhyUsDetailManager : IWhyUsDetailService
     {
+        private readonly IWhyUsDetailDal _whyUsDetailDal;
+
+        public WhyUsDetailManager(IWhyUsDetailDal whyUsDetailDal)
+        {
+            _whyUsDetailDal = whyUsDetailDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _whyUsDetailDal.Delete(id);
         }
 
         public WhyUsDetail TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _whyUsDetailDal.GetById(id);
         }
 
         public List<WhyUsDetail> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _whyUsDetailDal.GetListAll();
         }
 
         public void TInsert(WhyUsDetail entity)
         {
-            throw new NotImplementedException();
+            _whyUsDetailDal.Insert(entity);
         }
 
         public void TUpdate(WhyUsDetail entity)
         {
-            throw new NotImplementedException();
+            _whyUsDetailDal.Update(entity);
         }
     }
 }

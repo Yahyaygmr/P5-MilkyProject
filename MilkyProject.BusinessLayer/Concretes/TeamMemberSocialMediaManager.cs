@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class TeamMemberSocialMediaManager : ITeamMemberSocialMediaService
     {
+        private readonly ITeamMemberSocialMediaDal _teamMemberSocialMediaDal;
+
+        public TeamMemberSocialMediaManager(ITeamMemberSocialMediaDal teamMemberSocialMediaDal)
+        {
+            _teamMemberSocialMediaDal = teamMemberSocialMediaDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _teamMemberSocialMediaDal.Delete(id);
         }
 
         public TeamMemberSocialMedia TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _teamMemberSocialMediaDal.GetById(id);
         }
 
         public List<TeamMemberSocialMedia> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _teamMemberSocialMediaDal.GetListAll();
         }
 
         public void TInsert(TeamMemberSocialMedia entity)
         {
-            throw new NotImplementedException();
+            _teamMemberSocialMediaDal.Insert(entity);
         }
 
         public void TUpdate(TeamMemberSocialMedia entity)
         {
-            throw new NotImplementedException();
+            _teamMemberSocialMediaDal.Update(entity);
         }
     }
 }

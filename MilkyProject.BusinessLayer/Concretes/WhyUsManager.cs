@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class WhyUsManager : IWhyUsService
     {
+        private readonly IWhyUsDal _whyUsDal;
+
+        public WhyUsManager(IWhyUsDal whyUsDal)
+        {
+            _whyUsDal = whyUsDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _whyUsDal.Delete(id);
         }
 
         public WhyUs TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _whyUsDal.GetById(id);
         }
 
         public List<WhyUs> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _whyUsDal.GetListAll();
         }
 
         public void TInsert(WhyUs entity)
         {
-            throw new NotImplementedException();
+            _whyUsDal.Insert(entity);
         }
 
         public void TUpdate(WhyUs entity)
         {
-            throw new NotImplementedException();
+            _whyUsDal.Update(entity);
         }
     }
 }

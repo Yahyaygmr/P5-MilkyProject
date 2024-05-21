@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class TestimonialManager : ITestimonialService
     {
+        private readonly ITestimonialDal _testimonialDal;
+
+        public TestimonialManager(ITestimonialDal testimonialDal)
+        {
+            _testimonialDal = testimonialDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _testimonialDal.Delete(id);
         }
 
         public Testimonial TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _testimonialDal.GetById(id);
         }
 
         public List<Testimonial> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _testimonialDal.GetListAll();
         }
 
         public void TInsert(Testimonial entity)
         {
-            throw new NotImplementedException();
+            _testimonialDal.Insert(entity);
         }
 
         public void TUpdate(Testimonial entity)
         {
-            throw new NotImplementedException();
+            _testimonialDal.Update(entity);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class TeamMemberManager : ITeamMemberService
     {
+        private readonly ITeamMemberDal _teamMemberDal;
+
+        public TeamMemberManager(ITeamMemberDal teamMemberDal)
+        {
+            _teamMemberDal = teamMemberDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _teamMemberDal.Delete(id);
         }
 
         public TeamMember TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _teamMemberDal.GetById(id);
         }
 
         public List<TeamMember> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _teamMemberDal.GetListAll();
         }
 
         public void TInsert(TeamMember entity)
         {
-            throw new NotImplementedException();
+            _teamMemberDal.Insert(entity);
         }
 
         public void TUpdate(TeamMember entity)
         {
-            throw new NotImplementedException();
+            _teamMemberDal.Update(entity);
         }
     }
 }

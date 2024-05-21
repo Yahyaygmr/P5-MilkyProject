@@ -1,4 +1,5 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace MilkyProject.BusinessLayer.Concretes
 {
     public class BusinessHourManager : IBusinessHourService
     {
+        private readonly IBusinessHourDal _businessHourDal;
+
+        public BusinessHourManager(IBusinessHourDal businessHourDal)
+        {
+            _businessHourDal = businessHourDal;
+        }
+
         public void TDelete(int id)
         {
-            throw new NotImplementedException();
+            _businessHourDal.Delete(id);
         }
 
         public BusinessHour TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _businessHourDal.GetById(id);
         }
 
         public List<BusinessHour> TGetListAll()
         {
-            throw new NotImplementedException();
+            return _businessHourDal.GetListAll();
         }
 
         public void TInsert(BusinessHour entity)
         {
-            throw new NotImplementedException();
+            _businessHourDal.Insert(entity);
         }
 
         public void TUpdate(BusinessHour entity)
         {
-            throw new NotImplementedException();
+            _businessHourDal.Update(entity);
         }
     }
 }
