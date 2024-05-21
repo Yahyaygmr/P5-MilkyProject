@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MilkyProject.BusinessLayer.Abstracts;
 using MilkyProject.EntityLayer.Concrete;
+using MilkyProject.WebAPI.Dto;
 
 namespace MilkyProject.WebAPI.Controllers
 {
@@ -22,9 +23,9 @@ namespace MilkyProject.WebAPI.Controllers
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult CreateCategory(Category category)
+        public IActionResult CreateCategory(CreateCategoryDto categoryDto)
         {
-            _categoryService.TInsert(category);
+            _categoryService.TInsert(new Category() { Name = categoryDto.Name});
             return Ok("Kategori başarıyla eklendi.");
         }
         [HttpDelete("{id}")]
@@ -34,12 +35,12 @@ namespace MilkyProject.WebAPI.Controllers
             return Ok("Kategori başarıyla Silindi.");
         }
         [HttpPut]
-        public IActionResult UpdateCategory(Category category)
+        public IActionResult UpdateCategory(UpdateCategoryDto categoryDto)
         {
-            _categoryService.TUpdate(category);
+            _categoryService.TUpdate(new Category() { CategoryId= categoryDto .CategoryId, Name = categoryDto .Name});
             return Ok("Katgori başarıyla güncellendi");
         }
-        [HttpGet("GetCategoryById")]
+        [HttpGet("GetCategoryById/{id}")]
         public IActionResult GetCategoryById(int id)
         {
             var value = _categoryService.TGetById(id);

@@ -1,9 +1,12 @@
+using MilkyProject.WebUI.Areas.Admin.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
+builder.Services.AddScoped(typeof(DynamicConsume<>));
 
 var app = builder.Build();
 

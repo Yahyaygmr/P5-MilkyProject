@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc;
+using MilkyProject.WebUI.Areas.Admin.Models;
 using MilkyProject.WebUI.Dtos.Category;
 using Newtonsoft.Json;
 using System.Text;
@@ -9,22 +11,27 @@ namespace MilkyProject.WebUI.Controllers
     public class CategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly DynamicConsume<CreateCategoryDto> _dynamicConsumeCreateCategory;
+        private readonly DynamicConsume<object> _dynamicConsumeDeleteCategory;
+        private readonly DynamicConsume<UpdateCategoryDto> _dynamicConsumeUpdateCategory;
+        private readonly DynamicConsume<ResultCategoryDto> _dynamicConsumeResultCategory;
 
-        public CategoryController(IHttpClientFactory httpClientFactory)
+        public CategoryController(IHttpClientFactory httpClientFactory, DynamicConsume<CreateCategoryDto> dynamicConsumeCreateCategory, DynamicConsume<object> dynamicConsumeDeleteCategory, DynamicConsume<UpdateCategoryDto> dynamicConsumeUpdateCategory, DynamicConsume<ResultCategoryDto> dynamicConsumeResultCategory)
         {
             _httpClientFactory = httpClientFactory;
+            _dynamicConsumeCreateCategory = dynamicConsumeCreateCategory;
+            _dynamicConsumeDeleteCategory = dynamicConsumeDeleteCategory;
+            _dynamicConsumeUpdateCategory = dynamicConsumeUpdateCategory;
+            _dynamicConsumeResultCategory = dynamicConsumeResultCategory;
         }
 
         public async Task<IActionResult> Index()
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44374/api/Categories");
+            var result = await _dynamicConsumeResultCategory.GetListAsync("Categories");
 
-            if (responseMessage.IsSuccessStatusCode)
+            if (result != null)
             {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
-                return View(values);
+                return View(result);
             }
             return View();
         }
@@ -36,25 +43,19 @@ namespace MilkyProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryDto dto)
         {
-            var client = _httpClientFactory.CreateClient();
-
-            var jsonData = JsonConvert.SerializeObject(dto);
-
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-
-            var responseMessage = await client.PostAsync("https://localhost:44374/api/Categories", content);
-            if (responseMessage.IsSuccessStatusCode)
+            int result = await _dynamicConsumeCreateCategory.PostAsync("Categories", dto);
+            if(result>0)
             {
                 return RedirectToAction("Index");
             }
             return View(dto);
+           
         }
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            var client = _httpClientFactory.CreateClient();
+            var result = await _dynamicConsumeDeleteCategory.DeleteAsync("Categories", id);
 
-            var responseMessage = await client.DeleteAsync("https://localhost:44374/api/Categories/" + id);
-            if (responseMessage.IsSuccessStatusCode)
+            if (result > 0)
             {
                 return RedirectToAction("Index");
             }
@@ -63,31 +64,18 @@ namespace MilkyProject.WebUI.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateCategory(int id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44374/api/Categories/GetCategoryById?id="+id);
-            if (responseMessage.IsSuccessStatusCode)
+            var result = await _dynamicConsumeUpdateCategory.GetByIdAsync("Categories/GetCategoryById", id);
+            if (result != null)
             {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonData);
-                return View(values);
+                return View(result);
             }
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto dto)
         {
-            if (!ModelState.IsValid)
-            {
-                return UnprocessableEntity(dto);
-            }
-            var client = _httpClientFactory.CreateClient();
-
-            var jsonData = JsonConvert.SerializeObject(dto);
-
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-
-            var responseMessage = await client.PutAsync("https://localhost:44374/api/Categories", content);
-            if (responseMessage.IsSuccessStatusCode)
+            var result = await _dynamicConsumeUpdateCategory.PutAsync("Categories", dto);
+            if (result > 0)
             {
                 return RedirectToAction("Index");
             }
