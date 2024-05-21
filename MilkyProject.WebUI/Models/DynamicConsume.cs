@@ -1,9 +1,8 @@
-﻿using Humanizer;
-using MilkyProject.WebUI.Dtos.Product;
+﻿
 using Newtonsoft.Json;
 using System.Text;
 
-namespace MilkyProject.WebUI.Areas.Admin.Models
+namespace MilkyProject.WebUI.Models
 {
     public class DynamicConsume<T> where T : class
     {

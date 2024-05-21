@@ -1,6 +1,6 @@
 ﻿using Humanizer;
 using Microsoft.AspNetCore.Mvc;
-using MilkyProject.WebUI.Areas.Admin.Models;
+using MilkyProject.WebUI.Models;
 using MilkyProject.WebUI.Dtos.Category;
 using Newtonsoft.Json;
 using System.Text;

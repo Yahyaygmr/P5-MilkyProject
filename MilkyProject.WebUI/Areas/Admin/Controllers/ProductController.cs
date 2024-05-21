@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MilkyProject.WebUI.Areas.Admin.Models;
 using MilkyProject.WebUI.Dtos.Product;
 
 namespace MilkyProject.WebUI.Areas.Admin.Controllers

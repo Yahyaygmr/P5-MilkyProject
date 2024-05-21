@@ -1,4 +1,6 @@
-using MilkyProject.WebUI.Areas.Admin.Models;
+
+
+using MilkyProject.WebUI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,0 +1,39 @@
+﻿@model List<ResultAboutUsServiceDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="row">
+    <span class="alert alert-danger">Tema bütünlüğü için bu alanda bulunan hizmetlerde yanlızca 2 tanesini UI da listeleyebilirsiniz.</span>
+</div>
+
+<h6 class="mb-4">UI Hakkımızda Hizmet Alanı</h6>
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>#</th>
+            <th>Başlık</th>
+            <th>Yayında mı?</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.Title</td>
+                <td>@item.Status</td>
+                <td>
+                    <a href="/Admin/AboutUsService/UpdateAboutUsService/@item.AboutUsServiceId" class="btn btn-secondary">Detay</a>
+                    <a href="/Admin/AboutUsService/DeleteAboutUsService/@item.AboutUsServiceId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/AboutUsService/CreateAboutUsService" class="btn btn-primary">+ Yeni Oluştur</a>
+
