@@ -8,5 +8,10 @@ namespace MilkyProject.DtoLayer.ContactDtos
 {
     public class CreateContactDto
     {
+
+        public string Adress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string MapLocation { get; set; }
     }
 }

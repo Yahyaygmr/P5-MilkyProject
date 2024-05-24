@@ -46,11 +46,11 @@ namespace MilkyProject.WebUI.Models
         {
             var client = _httpClientFactory.CreateClient();
 
-            var jsonData = JsonConvert.SerializeObject(modelClass);
+            //var jsonData = JsonConvert.SerializeObject(modelClass);
 
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            //StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PostAsync($"https://localhost:44374/api/{link}", content);
+            var responseMessage = await client.PostAsJsonAsync($"https://localhost:44374/api/{link}", modelClass);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return 1;
@@ -61,11 +61,11 @@ namespace MilkyProject.WebUI.Models
         {
             var client = _httpClientFactory.CreateClient();
 
-            var jsonData = JsonConvert.SerializeObject(modelClass);
+            //var jsonData = JsonConvert.SerializeObject(modelClass);
 
-            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            //StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PutAsync($"https://localhost:44374/api/{link}", content);
+            var responseMessage = await client.PutAsJsonAsync($"https://localhost:44374/api/{link}", modelClass);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return 1;

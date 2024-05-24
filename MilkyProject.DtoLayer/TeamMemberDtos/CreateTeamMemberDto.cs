@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MilkyProject.EntityLayer.Concrete
+namespace MilkyProject.DtoLayer.TeamMemberDtos
 {
-    public class TeamMember
+    public class CreateTeamMemberDto
     {
-        public int TeamMemberId { get; set; }
         public string NameSurname { get; set; }
         public string Title { get; set; }
+        public int TeamMemberSocialMediaId { get; set; }
         public bool Status { get; set; }
-        public List<TeamMemberSocialMedia> TeamMemberSocialMedias { get; set; }
-
     }
 }
