@@ -6,11 +6,11 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/{controller}/{action}/{id?}")]
-    public class AbourUsController : Controller
+    public class AboutUsController : Controller
     {
         private readonly DynamicConsume<UpdateAboutUsDto> _dynamicConsumeUpdateAbout;
 
-        public AbourUsController(DynamicConsume<UpdateAboutUsDto> dynamicConsumeUpdateAbout)
+        public AboutUsController(DynamicConsume<UpdateAboutUsDto> dynamicConsumeUpdateAbout)
         {
             _dynamicConsumeUpdateAbout = dynamicConsumeUpdateAbout;
         }

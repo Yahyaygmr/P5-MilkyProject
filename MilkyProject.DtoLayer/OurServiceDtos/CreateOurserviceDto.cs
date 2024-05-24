@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilkyProject.DtoLayer.OurServiceDtos
 {
-    public class CreateOurserviceDto
+    public class CreateOurServiceDto
     {
         public string Title { get; set; }
         public string Description { get; set; }

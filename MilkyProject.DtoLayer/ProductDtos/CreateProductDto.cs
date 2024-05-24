@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilkyProject.DtoLayer.ProductDtos
 {
-    public class CreateProductDtos
+    public class CreateProductDto
     {
         public string? Name { get; set; }
         public decimal OldPrice { get; set; }

@@ -4,6 +4,8 @@ using MilkyProject.WebUI.Models;
 
 namespace MilkyProject.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("Admin/{controller}/{action}/{id?}")]
     public class BusinessHourController : Controller
     {
         private readonly DynamicConsume<ResultBusinessHourDto> _resultBusinessHour;

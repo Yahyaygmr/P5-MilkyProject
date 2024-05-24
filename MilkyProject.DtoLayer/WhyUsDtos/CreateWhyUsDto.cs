@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilkyProject.DtoLayer.WhyUsDtos
 {
-    public class CreateWhyUsDtos
+    public class CreateWhyUsDto
     {
         public string Title { get; set; }
         public string Decription { get; set; }

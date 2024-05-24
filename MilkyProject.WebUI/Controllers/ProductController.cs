@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MilkyProject.WebUI.Dtos.Product;
+using MilkyProject.DtoLayer.ProductDtos;
 using Newtonsoft.Json;
 using System.Text;
 
