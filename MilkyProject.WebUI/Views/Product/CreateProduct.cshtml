@@ -1,4 +1,4 @@
-﻿@model MilkyProject.WebUI.Dtos.Product.CreateProductDto
+﻿@model MilkyProject.DtoLayer.ProductDtos.CreateProductDto
 @{
     ViewData["Title"] = "CreateProduct";
 }
@@ -6,19 +6,19 @@
 <form method="post">
     <br />
     <label>ÜrünAdı</label>
-    <input type="text" asp-for="name"/>
+    <input type="text" asp-for="Name"/>
     <br />
     <label>Eski Fiyat</label>
-    <input type="text" asp-for="oldPrice" />
+    <input type="text" asp-for="OldPrice" />
     <br />
     <label>Yeni Fiyat</label>
-    <input type="text" asp-for="newPrice" />
+    <input type="text" asp-for="NewPrice" />
     <br />
     <label>Görsel</label>
-    <input type="text" asp-for="imageUrl" />
+    <input type="text" asp-for="ImageUrl" />
     <br />
     <label>Durum</label>
-    <input type="text" asp-for="status" />
+    <input type="text" asp-for="Status" />
     <br />
 <button class="btn btn-info">Ekle</button>
 

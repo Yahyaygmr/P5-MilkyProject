@@ -1,7 +1,7 @@
 ﻿using Humanizer;
 using Microsoft.AspNetCore.Mvc;
+using MilkyProject.DtoLayer.CategoryDtos;
 using MilkyProject.WebUI.Models;
-using MilkyProject.WebUI.Dtos.Category;
 using Newtonsoft.Json;
 using System.Text;
 using System.Text.Json.Serialization;

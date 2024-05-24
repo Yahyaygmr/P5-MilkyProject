@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MilkyProject.WebUI.Models;
-using MilkyProject.WebUI.Dtos.Category;
+using MilkyProject.DtoLayer.CategoryDtos;
 
 namespace MilkyProject.WebUI.Areas.Admin.Controllers
 {
