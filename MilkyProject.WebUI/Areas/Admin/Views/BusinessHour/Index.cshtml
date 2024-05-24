@@ -1,0 +1,38 @@
+﻿@model List<ResultBusinessHourDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+    int count = 0;
+}
+
+
+<h6 class="mb-4">UI Çalışma Saatleri Alanı</h6>
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>#</th>
+            <th>Gün</th>
+            <th>Saatler</th>
+            <th>Yayında mı?</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.Day</td>
+                <td>@item.Hours</td>
+                <td>@item.Status</td>
+                <td>
+                    <a href="/Admin/BusinessHour/UpdateBusinessHour/@item.BusinessHourId" class="btn btn-secondary">Detay</a>
+                    <a href="/Admin/BusinessHour/DeleteBusinessHour/@item.BusinessHourId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/BusinessHour/CreateBusinessHour" class="btn btn-primary">+ Yeni Oluştur</a>
+

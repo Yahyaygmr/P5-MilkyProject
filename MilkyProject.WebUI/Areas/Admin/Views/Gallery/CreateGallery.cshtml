@@ -1,0 +1,32 @@
+﻿@model CreateGalleryDto
+
+@{
+    ViewData["Title"] = "CreateGallery";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+<h4>UI Galeri Alanı Yeni Resim Ekleme</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="ImageUrl" class="control-label">Resim Url</label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check mb-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Status" /> Yayınlansın Mı?
+                </label>
+            </div>
+            <div class="form-group mb-3">
+                <a href="/Admin/Gallery/Index" class="btn btn-warning">Listeye Dön</a>
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

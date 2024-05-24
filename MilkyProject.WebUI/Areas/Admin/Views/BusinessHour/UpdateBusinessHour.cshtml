@@ -1,0 +1,35 @@
+﻿@model UpdateBusinessHourDto
+@{
+    ViewData["Title"] = "UpdateBusinessHour";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+<h4>UI Çalışma Saatleri Alanı Çalışma Saati Güncelleme </h4>
+<hr />
+<div class="row">
+
+    <form method="post">
+        <input type="hidden" asp-for="BusinessHourId"/>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Day" class="control-label">Gün</label>
+            <input asp-for="Day" class="form-control" />
+            <span asp-validation-for="Day" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Hours" class="control-label">Saatler</label>
+            <input asp-for="Hours" class="form-control" />
+            <span asp-validation-for="Hours" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check my-3">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Status" /> Yayınlansın Mı?
+            </label>
+        </div>
+        <div class="form-group">
+            <a href="/Admin/AboutUsService/Index" class="btn btn-warning"> Listeye Dön</a>
+            <input type="submit" value="Güncelle" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+

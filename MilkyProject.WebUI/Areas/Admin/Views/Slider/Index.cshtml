@@ -1,0 +1,39 @@
+﻿@model List<ResultSliderDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+    int count = 0;
+}
+
+<h6 class="mb-4">UI Slider Alanı</h6>
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>#</th>
+            <th>Resim</th>
+            <th>Açıklama 1</th>
+            <th>Açıklama 2</th>
+            <th>Yayında mı?</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td><img src="@item.ImageUrl" style="width:55px; height:55px; object-fit:cover;"/></td>
+                <td>@item.Description1</td>
+                <td>@item.Description2</td>
+                <td>@item.Status</td>
+                <td>
+                    <a href="/Admin/Slider/UpdateSlider/@item.SliderId" class="btn btn-secondary">Detay</a>
+                    <a href="/Admin/Slider/DeleteSlider/@item.SliderId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/Slider/CreateSlider" class="btn btn-primary">+ Yeni Oluştur</a>
+

@@ -23,7 +23,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var values = await _resultGallery.GetListAsync("Gallerys/GetGallery");
+            var values = await _resultGallery.GetListAsync("Galleries/GetGallery");
             if (values != null)
             {
                 return View(values);
@@ -38,7 +38,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateGallery(CreateGalleryDto dto)
         {
-            var result = await _createGallery.PostAsync("Gallerys", dto);
+            var result = await _createGallery.PostAsync("Galleries", dto);
             if (result > 0)
             {
                 return RedirectToAction("Index");
@@ -48,7 +48,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateGallery(int id)
         {
-            var values = await _updateGallery.GetByIdAsync("Gallerys/GetGalleryById", id);
+            var values = await _updateGallery.GetByIdAsync("Galleries/GetGalleryById", id);
             if (values != null)
             {
                 return View(values);
@@ -58,7 +58,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateGallery(UpdateGalleryDto dto)
         {
-            var result = await _updateGallery.PutAsync("Gallerys/UpdateGallery", dto);
+            var result = await _updateGallery.PutAsync("Galleries/UpdateGallery", dto);
             if (result > 0)
             {
                 return RedirectToAction("Index");
@@ -67,7 +67,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         }
         public async Task<IActionResult> DeleteGallery(int id)
         {
-            var result = await _objectGallery.DeleteAsync("Gallerys/DeleteGallery", id);
+            var result = await _objectGallery.DeleteAsync("Galleries/DeleteGallery", id);
             if (result > 0)
             {
                 return RedirectToAction("Index");

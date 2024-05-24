@@ -1,0 +1,39 @@
+﻿@model UpdateContactDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+<h4>UI İletişim Sayfası Güncelleme </h4>
+<hr />
+<div class="row">
+
+    <form method="post">
+        <input type="hidden" asp-for="ContactId" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Adress" class="control-label">Adres</label>
+            <input asp-for="Adress" class="form-control" />
+            <span asp-validation-for="Adress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="control-label">Telefon</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MapLocation" class="control-label">Lokasyon(Google Haritalar)</label>
+            <input asp-for="MapLocation" class="form-control" />
+            <span asp-validation-for="MapLocation" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3">
+           
+            <input type="submit" value="Güncelle" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
