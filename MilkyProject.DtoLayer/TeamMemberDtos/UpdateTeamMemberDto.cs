@@ -11,7 +11,6 @@ namespace MilkyProject.DtoLayer.TeamMemberDtos
         public int TeamMemberId { get; set; }
         public string NameSurname { get; set; }
         public string Title { get; set; }
-        public int TeamMemberSocialMediaId { get; set; }
         public bool Status { get; set; }
     }
 }

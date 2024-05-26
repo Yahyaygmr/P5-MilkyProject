@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DtoLayer.TeamMemberDtos;
 using MilkyProject.EntityLayer.Concrete;
 
 namespace MilkyProject.WebAPI.Controllers
@@ -29,15 +30,26 @@ namespace MilkyProject.WebAPI.Controllers
             return Ok(values);
         }
         [HttpPost]
-        public IActionResult CreateTeamMember(TeamMember TeamMember)
+        public IActionResult CreateTeamMember(CreateTeamMemberDto dto)
         {
-            _serviceManager.TeamMemberService.TInsert(TeamMember);
+            _serviceManager.TeamMemberService.TInsert(new TeamMember()
+            {
+                NameSurname=dto.NameSurname,
+                Status = dto.Status,
+                Title = dto.Title,
+            });
             return Ok("Ekleme İşlemi Başarılı");
         }
         [HttpPut("UpdateTeamMember")]
-        public IActionResult UpdateTeamMember(TeamMember TeamMember)
+        public IActionResult UpdateTeamMember(UpdateTeamMemberDto dto)
         {
-            _serviceManager.TeamMemberService.TUpdate(TeamMember);
+            _serviceManager.TeamMemberService.TUpdate(new TeamMember()
+            {
+                TeamMemberId = dto.TeamMemberId,
+                NameSurname = dto.NameSurname,
+                Status = dto.Status,
+                Title = dto.Title,
+            });
             return Ok("Güncelleme İşlemi Başarılı");
         }
         [HttpDelete("DeleteTeamMember/{id}")]

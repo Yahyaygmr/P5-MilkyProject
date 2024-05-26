@@ -1,0 +1,33 @@
+﻿@model CreateTeamMemberDto
+@{
+    ViewData["Title"] = "CreateTeamMember";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+<h4>UI Ekibimiz Alanı Yeni Ekleme </h4>
+<hr />
+<div class="row">
+
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="NameSurname" class="control-label">Adı Soyadı</label>
+            <input asp-for="NameSurname" class="form-control" />
+            <span asp-validation-for="NameSurname" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Title" class="control-label">Unvan</label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check my-3">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Status" /> Yayınlansın Mı?
+            </label>
+        </div>
+        <div class="form-group">
+            <a href="/Admin/TeamMember/Index" class="btn btn-warning"> Listeye Dön</a>
+            <input type="submit" value="Oluştur" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
