@@ -23,7 +23,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var values = await _resultProduct.GetListAsync("Products/GetProduct");
+            var values = await _resultProduct.GetListAsync("Products");
             if (values != null)
             {
                 return View(values);
@@ -48,7 +48,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateProduct(int id)
         {
-            var values = await _updateProduct.GetByIdAsync("Products/GetProductById", id);
+            var values = await _updateProduct.GetByIdAsync("Products/GetProduct", id);
             if (values != null)
             {
                 return View(values);
@@ -58,7 +58,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(UpdateProductDto dto)
         {
-            var result = await _updateProduct.PutAsync("Products/UpdateProduct", dto);
+            var result = await _updateProduct.PutAsync("Products", dto);
             if (result > 0)
             {
                 return RedirectToAction("Index");

@@ -27,8 +27,8 @@ namespace MilkyProject.WebAPI.Controllers
             _productService.TInsert(Product);
             return Ok("Kategori başarıyla eklendi.");
         }
-        [HttpDelete]
-        public IActionResult CreateProduct(int id)
+        [HttpDelete("DeleteProduct/{id}")]
+        public IActionResult DeleteProduct(int id)
         {
             _productService.TDelete(id);
             return Ok("Kategori başarıyla Silindi.");
@@ -44,12 +44,6 @@ namespace MilkyProject.WebAPI.Controllers
         {
             var value = _productService.TGetById(id);
             return Ok(value);
-        }
-        [HttpGet("GetProductWithCategory")]
-        public IActionResult GetProductWithCategory()
-        {
-            var values = _productService.TGetListAll();
-            return Ok(values);
         }
 
     }

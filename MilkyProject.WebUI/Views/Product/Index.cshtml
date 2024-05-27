@@ -1,39 +1,9 @@
-﻿@model List<MilkyProject.DtoLayer.ProductDtos.ResultProductDto>
+﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Ürünlerimiz";
+    Layout = "~/Views/Layout/Index.cshtml";
 }
 
-<div class="container">
-    <h1>Ürün Listesi</h1>
-    <hr />
-    <div class="row">
-        <div class="col-12" ">
-            <table class="table table-hover table-striped">
-                <tr>
-                    <th>#</th>
-                    <th>Ürün Adı</th>
-                    <th>Eski Fiyat</th>
-                    <th>Yeni Fiyat</th>
-                    <th>ResimUrl</th>
-                    <th>Durumu</th>
-                    <th>Sil</th>
-                    <th>Güncelle</th>
-                </tr>
-        @foreach (var item in Model)
-        {
-                    <tr>
-                        <td>@item.ProductId</td>
-                        <td>@item.Name</td>
-                        <td>@item.OldPrice</td>
-                        <td>@item.NewPrice</td>
-                        <td>@item.ImageUrl</td>
-                        <td>@item.Status</td>
-                        <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a></td>
-                        <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-info">Güncelle</a></td>
-                    </tr>
-        }
-            </table>
-            <a href="/Product/CreateProduct" class="btn btn-primary">Yeni Ürün</a>
-        </div>
-    </div>
-</div>
+@await Component.InvokeAsync("LayoutProductComponentPartial")
+@await Component.InvokeAsync("LayoutWhyUsComponentPartial")
+

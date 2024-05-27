@@ -14,6 +14,5 @@ namespace MilkyProject.DtoLayer.ProductDtos
         public decimal NewPrice { get; set; }
         public string? ImageUrl { get; set; }
         public bool Status { get; set; }
-        public int? CategoryId { get; set; }
     }
 }

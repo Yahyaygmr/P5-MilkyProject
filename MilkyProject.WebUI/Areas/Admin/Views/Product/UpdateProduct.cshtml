@@ -1,0 +1,44 @@
+﻿@model UpdateProductDto
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+<h4>UI Ürünler Alanı  Ürün Düzenleme </h4>
+<hr />
+<div class="row">
+
+    <form method="post">
+        <input type="hidden" asp-for="ProductId"/>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Ürün Adı</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageUrl" class="control-label">Resim Url</label>
+            <input asp-for="ImageUrl" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OldPrice" class="control-label">Eski Fiyat</label>
+            <input asp-for="OldPrice" class="form-control" />
+            <span asp-validation-for="OldPrice" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NewPrice" class="control-label">Yeni Fiyat</label>
+            <input asp-for="NewPrice" class="form-control" />
+            <span asp-validation-for="NewPrice" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check my-3">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Status" /> Yayınlansın Mı?
+            </label>
+        </div>
+        <div class="form-group">
+            <a href="/Admin/Product/Index" class="btn btn-warning"> Listeye Dön</a>
+            <input type="submit" value="Güncelle" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
