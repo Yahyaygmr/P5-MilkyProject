@@ -48,7 +48,7 @@ namespace MilkyProject.WebAPI.Controllers
         [HttpGet("GetProductWithCategory")]
         public IActionResult GetProductWithCategory()
         {
-            var values = _productService.TGetProductsWithCategory();
+            var values = _productService.TGetListAll();
             return Ok(values);
         }
 

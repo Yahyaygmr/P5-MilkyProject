@@ -9,6 +9,5 @@ namespace MilkyProject.BusinessLayer.Abstracts
 {
     public interface IProductService : IGenericService<Product>
     {
-        List<Product> TGetProductsWithCategory();
     }
 }

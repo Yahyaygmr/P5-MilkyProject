@@ -12,7 +12,6 @@ namespace MilkyProject.BusinessLayer.Concretes
         private readonly IAboutUsService _aboutUsService;
         private readonly IAboutUsServiceService _aboutUsServiceService;
         private readonly IBusinessHourService _businessHourService;
-        private readonly ICategoryService _categoryService;
         private readonly IContactService _contactService;
         private readonly IGalleryService _galleryService;
         private readonly IMessageService _messageService;
@@ -27,12 +26,11 @@ namespace MilkyProject.BusinessLayer.Concretes
         private readonly IWhyUsDetailService _whyUsDetailService;
         private readonly IWhyUsService _whyUsService;
 
-        public ServiceManager(IAboutUsService aboutUsService, IAboutUsServiceService aboutUsServiceService, IBusinessHourService businessHourService, ICategoryService categoryService, IContactService contactService, IGalleryService galleryService, IMessageService messageService, IOurServiceService ourServiceService, IPageBannerService pageBannerService, IProductService productService, ISliderService sliderService, ISocialMediaService socialMediaService, ITeamMemberService teamMemberService, ITeamMemberSocialMediaService teamMemberSocialMediaService, ITestimonialService testimonialService, IWhyUsDetailService whyUsDetailService, IWhyUsService whyUsService)
+        public ServiceManager(IAboutUsService aboutUsService, IAboutUsServiceService aboutUsServiceService, IBusinessHourService businessHourService, IContactService contactService, IGalleryService galleryService, IMessageService messageService, IOurServiceService ourServiceService, IPageBannerService pageBannerService, IProductService productService, ISliderService sliderService, ISocialMediaService socialMediaService, ITeamMemberService teamMemberService, ITeamMemberSocialMediaService teamMemberSocialMediaService, ITestimonialService testimonialService, IWhyUsDetailService whyUsDetailService, IWhyUsService whyUsService)
         {
             _aboutUsService = aboutUsService;
             _aboutUsServiceService = aboutUsServiceService;
             _businessHourService = businessHourService;
-            _categoryService = categoryService;
             _contactService = contactService;
             _galleryService = galleryService;
             _messageService = messageService;
@@ -53,8 +51,6 @@ namespace MilkyProject.BusinessLayer.Concretes
         public IAboutUsServiceService AboutUsServiceService => _aboutUsServiceService;
 
         public IBusinessHourService BusinessHourService => _businessHourService;
-
-        public ICategoryService CategoryService => _categoryService;
 
         public IContactService ContactService => _contactService;
 

@@ -17,9 +17,6 @@ namespace MilkyProject.BusinessLayer.Extensions
         {
             services.AddScoped<IServiceManager, ServiceManager>();
 
-            services.AddScoped<ICategoryDal, EfCategoryDal>();
-            services.AddScoped<ICategoryService, CategoryManager>();
-
             services.AddScoped<ISliderDal, EfSliderDal>();
             services.AddScoped<ISliderService, SliderManager>();
 

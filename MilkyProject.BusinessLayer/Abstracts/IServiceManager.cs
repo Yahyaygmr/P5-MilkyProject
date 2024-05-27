@@ -11,7 +11,6 @@ namespace MilkyProject.BusinessLayer.Abstracts
         IAboutUsService AboutUsService { get; }
         IAboutUsServiceService AboutUsServiceService { get; }
         IBusinessHourService BusinessHourService { get; }
-        ICategoryService CategoryService { get; }
         IContactService ContactService { get; }
         IGalleryService GalleryService { get; }
         IMessageService MessageService { get; }

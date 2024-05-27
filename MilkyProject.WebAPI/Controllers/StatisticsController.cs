@@ -8,18 +8,18 @@ namespace MilkyProject.WebAPI.Controllers
     [ApiController]
     public class StatisticsController : ControllerBase
     {
-        private readonly ICategoryService _categoryService;
+        //private readonly ICategoryService _categoryService;
 
-        public StatisticsController(ICategoryService categoryService)
-        {
-            _categoryService = categoryService;
-        }
+        //public StatisticsController(ICategoryService categoryService)
+        //{
+        //    _categoryService = categoryService;
+        //}
 
-        [HttpGet("GetProductCount")]
-        public IActionResult GetProductCount()
-        {
-            var value = _categoryService.TGetCategoryCount();
-            return Ok(value);
-        }
+        //[HttpGet("GetProductCount")]
+        //public IActionResult GetProductCount()
+        //{
+        //    var value = _categoryService.TGetCategoryCount();
+        //    return Ok(value);
+        //}
     }
 }
