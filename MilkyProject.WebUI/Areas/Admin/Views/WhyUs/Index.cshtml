@@ -1,0 +1,20 @@
+﻿@model UpdateWhyUsDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+<h6 class="mb-4">UI Neden Biz? Alanı</h6>
+<form method="post">
+    <input type="hidden" asp-for="WhyUsId" />
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Başlık</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Title">
+    </div>
+    <div class="mb-3">
+        <label for="floatingTextarea">Açıklama</label>
+        <textarea class="form-control" placeholder="Açıklama" id="floatingTextarea" style="height: 150px;" asp-for="Decription"></textarea>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
