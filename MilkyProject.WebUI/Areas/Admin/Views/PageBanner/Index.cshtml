@@ -1,0 +1,15 @@
+﻿@model UpdatePageBannerDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+<h6 class="mb-4">UI Sayfa Banner Alanı</h6>
+<form method="post">
+    <input type="hidden" asp-for="PageBannerId" />
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Resim Url</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" asp-for="ImageUrl">
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>

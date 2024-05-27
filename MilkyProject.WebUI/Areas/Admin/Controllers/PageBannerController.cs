@@ -18,7 +18,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(int id = 1)
         {
-            var value = await _dynamicConsumeUpdateAbout.GetByIdAsync("PageBanneres/GetPageBannerById", id);
+            var value = await _dynamicConsumeUpdateAbout.GetByIdAsync("PageBanners/GetPageBannerById", id);
             if (value != null)
             {
                 return View(value);
@@ -28,7 +28,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UpdatePageBannerDto dto)
         {
-            int result = await _dynamicConsumeUpdateAbout.PutAsync("PageBanneres/UpdatePageBanner", dto);
+            int result = await _dynamicConsumeUpdateAbout.PutAsync("PageBanners/UpdatePageBanner", dto);
             if (result > 0)
             {
                 return View("Index");
