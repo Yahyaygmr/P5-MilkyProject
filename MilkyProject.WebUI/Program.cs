@@ -1,5 +1,8 @@
 
 
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using MilkyProject.WebUI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,20 @@ builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
 builder.Services.AddScoped(typeof(DynamicConsume<>));
+builder.Services.AddHttpClient();
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+    .RequireAuthenticatedUser()
+    .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/Login";
+    });
 
 var app = builder.Build();
 
@@ -24,7 +41,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {

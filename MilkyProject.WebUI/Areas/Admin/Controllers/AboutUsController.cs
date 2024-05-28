@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MilkyProject.DtoLayer.AboutUsDtos;
 using MilkyProject.WebUI.Models;
 
@@ -6,6 +7,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/{controller}/{action}/{id?}")]
+    [Authorize]
     public class AboutUsController : Controller
     {
         private readonly DynamicConsume<UpdateAboutUsDto> _dynamicConsumeUpdateAbout;

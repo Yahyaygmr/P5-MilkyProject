@@ -1,0 +1,32 @@
+﻿@model MilkyProject.WebUI.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Yönetici Girişi";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <form asp-action="Login" method="post">
+                <div class="form-group mt-3">
+                    <label asp-for="Username">Kullanıcı Adı</label>
+                    <input asp-for="Username" class="form-control" />
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="Password">Şifre</label>
+                    <input asp-for="Password" class="form-control" type="password" />
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                </div>
+               
+            </form>
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
+</div>

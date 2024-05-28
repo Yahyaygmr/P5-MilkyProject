@@ -30,5 +30,6 @@ namespace MilkyProject.DataAccessLayer.Context
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<WhyUs> WhyUses { get; set; }
         public DbSet<WhyUsDetail> WhyUsDetails { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
     }
 }

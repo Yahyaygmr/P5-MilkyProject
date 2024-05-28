@@ -1,0 +1,26 @@
+﻿@model ResultMessageDto
+@{
+    ViewData["Title"] = "MessageDetail";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+}
+
+<h6 class="mb-4">UI Gelen Mesaj Detayı</h6>
+<div class="row">
+    <div class="col-4">
+        <span style="font-weight:bold;">Gönderen</span> : @Model.Name
+    </div>
+    <div class="col-8 d-flex justify-content-end">
+        <span style="font-weight:bold;" class="text-end">Tarih</span> : @Model.SendDate.ToString("dd MMMM yyyy - HH:mm")
+    </div>
+
+    <div class="my-3">
+        <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Email" readonly>
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Subject" readonly>
+    </div>
+    <div class="mb-3">
+        <textarea class="form-control" placeholder="Açıklama" id="floatingTextarea" style="height: 150px;" asp-for="Content" readonly></textarea>
+    </div>
+</div>
+<a href="/Admin/Message/Index" class="btn btn-warning">Mesaj Listesine Dön</a>
