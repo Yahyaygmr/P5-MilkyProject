@@ -70,12 +70,6 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateTeamMemberSocialMedia(UpdateTeamMemberSocialMediaDto dto)
         {
-            dto.Url = "url";
-            dto.Status = true;
-            dto.AccountName = "name";
-            dto.Icon = "icon";
-            dto.TeamMemberId = 2;
-            dto.TeamMemberSocialMediaId = 9;
             var result = await _updateTeamMemberSocialMedia.PutAsync("TeamMemberSocialMedias/UpdateTeamMemberSocialMedia", dto);
             if (result > 0)
             {
