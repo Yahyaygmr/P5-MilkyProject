@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MilkyProject.EntityLayer.Concrete
@@ -14,6 +15,7 @@ namespace MilkyProject.EntityLayer.Concrete
         public string Icon { get; set; }
         public bool Status { get; set; }
         public int TeamMemberId { get; set; }
+        [JsonIgnore]
         public TeamMember TeamMember { get; set; }
     }
 }

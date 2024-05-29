@@ -1,4 +1,5 @@
-﻿using MilkyProject.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.DataAccessLayer.Context;
 using System;
 using System.Collections.Generic;

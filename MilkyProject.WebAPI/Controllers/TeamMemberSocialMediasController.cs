@@ -51,15 +51,16 @@ namespace MilkyProject.WebAPI.Controllers
         [HttpPut("UpdateTeamMemberSocialMedia")]
         public IActionResult UpdateTeamMemberSocialMedia(UpdateTeamMemberSocialMediaDto teamMemberSocialMedia)
         {
-            _serviceManager.TeamMemberSocialMediaService.TUpdate(new TeamMemberSocialMedia()
-            {
-                TeamMemberSocialMediaId = teamMemberSocialMedia.TeamMemberId,
-                AccountName = teamMemberSocialMedia.AccountName,
-                Icon = teamMemberSocialMedia.Icon,
-                Status = teamMemberSocialMedia.Status,
-                TeamMemberId = teamMemberSocialMedia.TeamMemberId,
-                Url = teamMemberSocialMedia.Url,
-            });
+            _serviceManager.TeamMemberSocialMediaService.TUpdateAsync(teamMemberSocialMedia);
+            //    new TeamMemberSocialMedia()
+            //{
+            //    TeamMemberSocialMediaId = teamMemberSocialMedia.TeamMemberId,
+            //    AccountName = teamMemberSocialMedia.AccountName,
+            //    Icon = teamMemberSocialMedia.Icon,
+            //    Status = teamMemberSocialMedia.Status,
+            //    TeamMemberId = teamMemberSocialMedia.TeamMemberId,
+            //    Url = teamMemberSocialMedia.Url,
+            //});
             return Ok("Güncelleme İşlemi Başarılı");
         }
         [HttpDelete("DeleteTeamMemberSocialMedia/{id}")]

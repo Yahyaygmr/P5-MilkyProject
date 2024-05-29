@@ -1,6 +1,8 @@
-﻿using MilkyProject.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using MilkyProject.DataAccessLayer.Abstract;
 using MilkyProject.DataAccessLayer.Context;
 using MilkyProject.DataAccessLayer.Repositories;
+using MilkyProject.DtoLayer.TeamMemberSocialMediaDtos;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,35 @@ namespace MilkyProject.DataAccessLayer.EntityFramework
             return _context.TeamMemberSocialMedias
                 .Where(x=> x.TeamMemberId == memberId)
                 .ToList();
+        }
+        public async Task UpdateAsync(UpdateTeamMemberSocialMediaDto teamMemberSocialMedia)
+        {
+            _context.Attach(teamMemberSocialMedia);
+            _context.Entry(teamMemberSocialMedia).State = EntityState.Modified;
+
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
+                    var entry = ex.Entries.Single();
+                    var databaseValues = await entry.GetDatabaseValuesAsync();
+                    if (databaseValues == null)
+                    {
+                        throw new Exception("The entity being updated has been deleted.");
+                    }
+
+                    var databaseEntity = databaseValues.ToObject();
+                    // Merge the database values into the entity
+                    entry.OriginalValues.SetValues(databaseValues);
+                }
+            } while (saveFailed);
         }
     }
 }

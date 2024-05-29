@@ -1,5 +1,6 @@
 ﻿using MilkyProject.BusinessLayer.Abstracts;
 using MilkyProject.DataAccessLayer.Abstract;
+using MilkyProject.DtoLayer.TeamMemberSocialMediaDtos;
 using MilkyProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,10 @@ namespace MilkyProject.BusinessLayer.Concretes
         public void TUpdate(TeamMemberSocialMedia entity)
         {
             _teamMemberSocialMediaDal.Update(entity);
+        }
+        public void TUpdateAsync(UpdateTeamMemberSocialMediaDto entity)
+        {
+            _teamMemberSocialMediaDal.UpdateAsync(entity);
         }
     }
 }
