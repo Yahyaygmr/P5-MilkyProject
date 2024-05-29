@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MilkyProject.BusinessLayer.Abstracts;
+using MilkyProject.DtoLayer.TeamMemberSocialMediaDtos;
 using MilkyProject.EntityLayer.Concrete;
 
 namespace MilkyProject.WebAPI.Controllers
@@ -28,16 +29,37 @@ namespace MilkyProject.WebAPI.Controllers
             var values = _serviceManager.TeamMemberSocialMediaService.TGetById(id);
             return Ok(values);
         }
-        [HttpPost]
-        public IActionResult CreateTeamMemberSocialMedia(TeamMemberSocialMedia teamMemberSocialMedia)
+        [HttpGet("GetTeamMemberSocialMediaByMember/{id}")]
+        public IActionResult GetTeamMemberSocialMediaMember(int id)
         {
-            _serviceManager.TeamMemberSocialMediaService.TInsert(teamMemberSocialMedia);
+            var values = _serviceManager.TeamMemberSocialMediaService.GetSocialMediasByMember(id);
+            return Ok(values);
+        }
+        [HttpPost]
+        public IActionResult CreateTeamMemberSocialMedia(CreateTeamMemberSocialMediaDto teamMemberSocialMedia)
+        {
+            _serviceManager.TeamMemberSocialMediaService.TInsert(new TeamMemberSocialMedia()
+            {
+                AccountName = teamMemberSocialMedia.AccountName,
+                Icon = teamMemberSocialMedia.Icon,
+                Status = teamMemberSocialMedia.Status,
+                TeamMemberId = teamMemberSocialMedia.TeamMemberId,
+                Url = teamMemberSocialMedia.Url,
+            });
             return Ok("Ekleme İşlemi Başarılı");
         }
         [HttpPut("UpdateTeamMemberSocialMedia")]
-        public IActionResult UpdateTeamMemberSocialMedia(TeamMemberSocialMedia teamMemberSocialMedia)
+        public IActionResult UpdateTeamMemberSocialMedia(UpdateTeamMemberSocialMediaDto teamMemberSocialMedia)
         {
-            _serviceManager.TeamMemberSocialMediaService.TUpdate(teamMemberSocialMedia);
+            _serviceManager.TeamMemberSocialMediaService.TUpdate(new TeamMemberSocialMedia()
+            {
+                TeamMemberSocialMediaId = teamMemberSocialMedia.TeamMemberId,
+                AccountName = teamMemberSocialMedia.AccountName,
+                Icon = teamMemberSocialMedia.Icon,
+                Status = teamMemberSocialMedia.Status,
+                TeamMemberId = teamMemberSocialMedia.TeamMemberId,
+                Url = teamMemberSocialMedia.Url,
+            });
             return Ok("Güncelleme İşlemi Başarılı");
         }
         [HttpDelete("DeleteTeamMemberSocialMedia/{id}")]

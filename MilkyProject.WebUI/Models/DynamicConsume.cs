@@ -38,9 +38,18 @@ namespace MilkyProject.WebUI.Models
             }
             return null;
         }
-        public void GetListByIdAsync()
+        public async Task<List<T>> GetListByIdAsync(string link, int id)
         {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:44374/api/{link}/{id}");
 
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<T>>(jsonData);
+                return values;
+            }
+            return new List<T>();
         }
         public async Task<int> PostAsync(string link,object modelClass)
         {

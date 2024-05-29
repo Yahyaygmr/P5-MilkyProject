@@ -30,9 +30,20 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
-        [HttpGet]
-        public IActionResult CreateTeamMemberSocialMedia()
+        public async Task<IActionResult> SocialMediaList(int id)
         {
+            ViewBag.memberId = id;
+            var values = await _resultTeamMemberSocialMedia.GetListByIdAsync("TeamMemberSocialMedias/GetTeamMemberSocialMediaByMember",id);
+            if (values != null)
+            {
+                return View(values);
+            }
+            return View();
+        }
+        [HttpGet]
+        public IActionResult CreateTeamMemberSocialMedia(int id)
+        {
+            ViewBag.memberId = id;
             return View();
         }
         [HttpPost]
@@ -41,7 +52,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
             var result = await _createTeamMemberSocialMedia.PostAsync("TeamMemberSocialMedias", dto);
             if (result > 0)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","TeamMember");
             }
             return View(dto);
         }
@@ -61,7 +72,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
             var result = await _updateTeamMemberSocialMedia.PutAsync("TeamMemberSocialMedias/UpdateTeamMemberSocialMedia", dto);
             if (result > 0)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "TeamMember");
             }
             return View(dto);
         }
@@ -70,7 +81,7 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
             var result = await _objectTeamMemberSocialMedia.DeleteAsync("TeamMemberSocialMedias/DeleteTeamMemberSocialMedia", id);
             if (result > 0)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "TeamMember");
             }
             return View();
         }

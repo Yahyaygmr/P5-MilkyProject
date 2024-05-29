@@ -1,0 +1,39 @@
+﻿@model List<ResultTeamMemberSocialMediaDto>
+@{
+    ViewData["Title"] = "SocialMediaList";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+    int count = 0;
+    int teamMemberId = 0;
+}
+
+<h6 class="mb-4">UI Takım Üyeleri Sosyal Medya Hesapları Alanı</h6>
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>#</th>
+            <th>Hesap</th>
+            <th>Url</th>
+            <th>Yayında mı?</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.AccountName</td>
+                <td>@item.Url</td>
+                <td>@item.Status</td>
+                <td>
+                    <a href="/Admin/TeamMemberSocialMedia/UpdateTeamMemberSocialMedia/@item.TeamMemberSocialMediaId" class="btn btn-secondary">Detay</a>
+                    <a href="/Admin/TeamMemberSocialMedia/DeleteTeamMemberSocialMedia/@item.TeamMemberSocialMediaId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/TeamMember/Index" class="btn btn-warning"> Listeye Dön</a>
+<a href="/Admin/TeamMemberSocialMedia/CreateTeamMemberSocialMedia/@ViewBag.memberId" class="btn btn-primary">+ Yeni Oluştur</a>
+

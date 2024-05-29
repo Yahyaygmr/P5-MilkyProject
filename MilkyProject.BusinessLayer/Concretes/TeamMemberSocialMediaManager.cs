@@ -18,6 +18,11 @@ namespace MilkyProject.BusinessLayer.Concretes
             _teamMemberSocialMediaDal = teamMemberSocialMediaDal;
         }
 
+        public List<TeamMemberSocialMedia> GetSocialMediasByMember(int memberId)
+        {
+            return _teamMemberSocialMediaDal.GetSocialMediasByMember(memberId);
+        }
+
         public void TDelete(int id)
         {
             _teamMemberSocialMediaDal.Delete(id);
