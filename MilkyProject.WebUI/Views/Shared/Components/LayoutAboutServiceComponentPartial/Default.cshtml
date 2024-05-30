@@ -1,0 +1,12 @@
+﻿@model List<ResultAboutUsServiceDto>
+<div class="row g-5 pt-2 mb-5">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6">
+            <img class="img-fluid mb-4" src="@item.Icon" alt="">
+            <h5 class="mb-3">@item.Title</h5>
+            <span>@item.Description</span>
+        </div>
+    }
+
+</div>
