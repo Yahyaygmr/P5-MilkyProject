@@ -9,5 +9,6 @@ namespace MilkyProject.DataAccessLayer.Abstract
 {
     public interface ITeamMemberDal : IGenericDal<TeamMember>
     {
+        List<TeamMember> GetMembersWithSocialMedias();
     }
 }

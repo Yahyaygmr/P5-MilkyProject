@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MilkyProject.DtoLayer.ProductDtos;
 using MilkyProject.DtoLayer.TeamMemberDtos;
+using MilkyProject.EntityLayer.Concrete;
 using MilkyProject.WebUI.Models;
 using System.Drawing.Text;
 
@@ -8,18 +9,18 @@ namespace MilkyProject.WebUI.ViewComponents.LayoutViewComponents
 {
     public class LayoutTeamComponentPartial : ViewComponent
     {
-        private readonly DynamicConsume<ResultTeamMemberDto> _dynamicConsumeResultTeamMemberDto;
+        private readonly DynamicConsume<ResultTeamMemmberDto2> _dynamicConsumeResultTeamMember;
 
-        public LayoutTeamComponentPartial(DynamicConsume<ResultTeamMemberDto> dynamicConsumeResultTeamMemberDto)
+        public LayoutTeamComponentPartial(DynamicConsume<ResultTeamMemmberDto2> dynamicConsumeResultTeamMember)
         {
-            _dynamicConsumeResultTeamMemberDto = dynamicConsumeResultTeamMemberDto;
+            _dynamicConsumeResultTeamMember = dynamicConsumeResultTeamMember;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var values = await _dynamicConsumeResultTeamMemberDto.GetListAsync("");
+            var values = await _dynamicConsumeResultTeamMember.GetListAsync("TeamMembers/GetTeamMemberWithSocialMedias");
 
-            List<ResultTeamMemberDto> members = new List<ResultTeamMemberDto>();
+            List<ResultTeamMemmberDto2> members = new List<ResultTeamMemmberDto2>();
 
             for (int i = 0; i < values.Count; i++)
             {

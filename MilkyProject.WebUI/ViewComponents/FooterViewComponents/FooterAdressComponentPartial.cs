@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MilkyProject.DtoLayer.ContactDtos;
-using MilkyProject.DtoLayer.TestimonialDtos;
 using MilkyProject.WebUI.Models;
 
-namespace MilkyProject.WebUI.ViewComponents.ContactViewComponents
+namespace MilkyProject.WebUI.ViewComponents.FooterViewComponents
 {
-    
-    public class ContactAdressComponentPartial : ViewComponent
+    public class FooterAdressComponentPartial : ViewComponent
     {
         private readonly DynamicConsume<ResultContactDto> _dynamicConsumeContact;
 
-        public ContactAdressComponentPartial(DynamicConsume<ResultContactDto> dynamicConsumeContact)
+        public FooterAdressComponentPartial(DynamicConsume<ResultContactDto> dynamicConsumeContact)
         {
             _dynamicConsumeContact = dynamicConsumeContact;
         }

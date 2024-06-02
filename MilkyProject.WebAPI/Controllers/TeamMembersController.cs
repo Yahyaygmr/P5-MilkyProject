@@ -58,5 +58,11 @@ namespace MilkyProject.WebAPI.Controllers
             _serviceManager.TeamMemberService.TDelete(id);
             return Ok("Silme İşlemi Başarılı");
         }
+        [HttpGet("GetTeamMemberWithSocialMedias")]
+        public IActionResult GetTeamMemberWithSocialMedias()
+        {
+            var values = _serviceManager.TeamMemberService.GetMembersWithSocialMedias();
+            return Ok(values);
+        }
     }
 }

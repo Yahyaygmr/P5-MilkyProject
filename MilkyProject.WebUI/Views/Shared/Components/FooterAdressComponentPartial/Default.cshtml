@@ -1,0 +1,8 @@
+﻿@model List<ResultContactDto>
+@foreach (var item in Model)
+{
+    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>@item.Adress</p>
+    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>@item.PhoneNumber</p>
+    <p class="mb-2"><i class="fa fa-envelope me-3"></i>@item.Email</p>
+}
+
