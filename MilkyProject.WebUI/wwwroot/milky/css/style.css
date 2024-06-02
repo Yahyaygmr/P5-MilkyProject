@@ -185,7 +185,7 @@
 }
 
 .page-header {
-    background: url(../img/banner.jpg) center center no-repeat;
+    /*background: url(../img/banner.jpg) center center no-repeat;*/
     background-size: cover;
 }
 

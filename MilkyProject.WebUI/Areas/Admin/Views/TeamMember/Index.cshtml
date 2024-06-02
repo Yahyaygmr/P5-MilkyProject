@@ -10,6 +10,7 @@
     <thead>
         <tr class="bg-light">
             <th>#</th>
+            <th>Resim</th>
             <th>Adı Soyadı</th>
             <th>Unvan</th>
             <th>Yayında mı?</th>
@@ -22,6 +23,7 @@
             count++;
             <tr>
                 <td>@count</td>
+                <td><img src="@item.ImageUrl" style="width:50px; height:50px;"/></td>
                 <td>@item.NameSurname</td>
                 <td>@item.Title</td>
                 <td>@item.Status</td>

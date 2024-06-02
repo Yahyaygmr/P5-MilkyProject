@@ -37,6 +37,7 @@ namespace MilkyProject.WebAPI.Controllers
                 NameSurname=dto.NameSurname,
                 Status = dto.Status,
                 Title = dto.Title,
+                ImageUrl = dto.ImageUrl,
             });
             return Ok("Ekleme İşlemi Başarılı");
         }
@@ -49,6 +50,7 @@ namespace MilkyProject.WebAPI.Controllers
                 NameSurname = dto.NameSurname,
                 Status = dto.Status,
                 Title = dto.Title,
+                ImageUrl = dto.ImageUrl,
             });
             return Ok("Güncelleme İşlemi Başarılı");
         }

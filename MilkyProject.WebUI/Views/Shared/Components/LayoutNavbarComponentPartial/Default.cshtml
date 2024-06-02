@@ -1,6 +1,6 @@
 ﻿
 <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
-    <a href="index.html" class="navbar-brand d-flex align-items-center">
+    <a href="/Default/Index/" class="navbar-brand d-flex align-items-center">
         <h1 class="m-0">Milky</h1>
     </a>
     <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -8,10 +8,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/Default/Index/" class="nav-item nav-link active">Anasayfa</a>
-            <a href="/About/Index/" class="nav-item nav-link">Hakkımızda</a>
-            <a href="/Service/Index/" class="nav-item nav-link">Hizmetlerimiz</a>
-            <a href="/Product/Index/" class="nav-item nav-link">Ürünlerimiz</a>
+            <a href="/Default/Index/" class="nav-item nav-link @ViewData["ActiveHome"]">Anasayfa</a>
+            <a href="/About/Index/" class="nav-item nav-link @ViewData["ActiveAbout"]">Hakkımızda</a>
+            <a href="/Service/Index/" class="nav-item nav-link @ViewData["ActiveServices"]">Hizmetlerimiz</a>
+            <a href="/Product/Index/" class="nav-item nav-link @ViewData["ActiveProduct"]">Ürünlerimiz</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sayfalar</a>
                 <div class="dropdown-menu bg-light m-0">
@@ -22,7 +22,7 @@
                     <a href="/Login/Login/" class="dropdown-item">Yönetici Girişi</a>
                 </div>
             </div>
-            <a href="/Contact/Index/" class="nav-item nav-link">İletişim</a>
+            <a href="/Contact/Index/" class="nav-item nav-link @ViewData["ActiveContact"]">İletişim</a>
         </div>
         <div class="border-start ps-4 d-none d-lg-block">
             <button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
