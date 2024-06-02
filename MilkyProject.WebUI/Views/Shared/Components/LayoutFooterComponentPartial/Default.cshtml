@@ -24,12 +24,8 @@
                
             </div>
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-white mb-4">Mail Listesi</h5>
-                <p>En güncel kampanya ve duyurulardan haberdar olmak için mail listemize kaydolun.</p>
-                <div class="position-relative w-100">
-                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Mail Adresiniz">
-                    <button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">Kayıt Ol</button>
-                </div>
+                @await Component.InvokeAsync("FooterNewsletterComponentPartial")
+               
             </div>
         </div>
     </div>

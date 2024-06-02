@@ -65,6 +65,9 @@ namespace MilkyProject.BusinessLayer.Extensions
             services.AddScoped<IWhyUsDetailDal, EfWhyUsDetailDal>();
             services.AddScoped<IWhyUsDetailService, WhyUsDetailManager>();
 
+            services.AddScoped<INewsletterDal, EfNewsletterDal>();
+            services.AddScoped<INewsletterService, NewsletterManager>();
+
         }
     }
 }

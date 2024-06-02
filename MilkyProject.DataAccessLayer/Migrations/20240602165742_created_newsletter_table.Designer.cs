@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MilkyProject.DataAccessLayer.Context;
 
@@ -11,9 +12,10 @@ using MilkyProject.DataAccessLayer.Context;
 namespace MilkyProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(MilkyContext))]
-    partial class MilkyContextModelSnapshot : ModelSnapshot
+    [Migration("20240602165742_created_newsletter_table")]
+    partial class created_newsletter_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

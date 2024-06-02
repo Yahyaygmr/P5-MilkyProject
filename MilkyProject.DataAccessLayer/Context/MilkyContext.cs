@@ -31,5 +31,6 @@ namespace MilkyProject.DataAccessLayer.Context
         public DbSet<WhyUs> WhyUses { get; set; }
         public DbSet<WhyUsDetail> WhyUsDetails { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Newsletter> Newsletters { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace MilkyProject.BusinessLayer.Abstracts
         ITestimonialService TestimonialService { get; }
         IWhyUsService WhyUsService { get; }
         IWhyUsDetailService WhyUsDetailService { get; }
+        INewsletterService NewsletterService { get; }
 
     }
 }

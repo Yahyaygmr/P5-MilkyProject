@@ -25,8 +25,9 @@ namespace MilkyProject.BusinessLayer.Concretes
         private readonly ITestimonialService _testimonialService;
         private readonly IWhyUsDetailService _whyUsDetailService;
         private readonly IWhyUsService _whyUsService;
+        private readonly INewsletterService _newsletterService;
 
-        public ServiceManager(IAboutUsService aboutUsService, IAboutUsServiceService aboutUsServiceService, IBusinessHourService businessHourService, IContactService contactService, IGalleryService galleryService, IMessageService messageService, IOurServiceService ourServiceService, IPageBannerService pageBannerService, IProductService productService, ISliderService sliderService, ISocialMediaService socialMediaService, ITeamMemberService teamMemberService, ITeamMemberSocialMediaService teamMemberSocialMediaService, ITestimonialService testimonialService, IWhyUsDetailService whyUsDetailService, IWhyUsService whyUsService)
+        public ServiceManager(IAboutUsService aboutUsService, IAboutUsServiceService aboutUsServiceService, IBusinessHourService businessHourService, IContactService contactService, IGalleryService galleryService, IMessageService messageService, IOurServiceService ourServiceService, IPageBannerService pageBannerService, IProductService productService, ISliderService sliderService, ISocialMediaService socialMediaService, ITeamMemberService teamMemberService, ITeamMemberSocialMediaService teamMemberSocialMediaService, ITestimonialService testimonialService, IWhyUsDetailService whyUsDetailService, IWhyUsService whyUsService, INewsletterService newsletterService)
         {
             _aboutUsService = aboutUsService;
             _aboutUsServiceService = aboutUsServiceService;
@@ -44,6 +45,7 @@ namespace MilkyProject.BusinessLayer.Concretes
             _testimonialService = testimonialService;
             _whyUsDetailService = whyUsDetailService;
             _whyUsService = whyUsService;
+            _newsletterService = newsletterService;
         }
 
         public IAboutUsService AboutUsService => _aboutUsService;
@@ -77,5 +79,7 @@ namespace MilkyProject.BusinessLayer.Concretes
         public IWhyUsService WhyUsService => _whyUsService;
 
         public IWhyUsDetailService WhyUsDetailService => _whyUsDetailService;
+
+        public INewsletterService NewsletterService => _newsletterService;
     }
 }

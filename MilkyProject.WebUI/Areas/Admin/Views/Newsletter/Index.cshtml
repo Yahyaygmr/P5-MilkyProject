@@ -1,0 +1,31 @@
+﻿@model List<Newsletter>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/Index.cshtml";
+    int count = 0;
+}
+
+<h6 class="mb-4">UI Mail Listesi Alanı</h6>
+<table class="table table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>#</th>
+            <th>Mail</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.Email</td>
+                <td>
+                    <a href="/Admin/Message/DeleteMessage/@item.NewsletterId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
