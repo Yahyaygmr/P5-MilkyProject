@@ -4,12 +4,24 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using MilkyProject.WebUI.Models;
+using NToastNotify;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient();
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllersWithViews()
+    .AddNToastNotifyToastr(new ToastrOptions()
+    {
+        PositionClass = ToastPositions.TopLeft,
+        TimeOut = 7000,
+        Debug = true,
+        ProgressBar = true,
+        CloseButton = true,
+
+    });
+
 builder.Services.AddMvc();
 builder.Services.AddScoped(typeof(DynamicConsume<>));
 builder.Services.AddHttpClient();
@@ -36,7 +48,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseNToastNotify();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
