@@ -8,7 +8,7 @@ Ayrıca admin panelinden ön yüz yönetimi yapılmakta. Admin paneline sadece g
 - Asp .Net Core Api
 - Asp .net core mvc
 - EntityFramework
-
+- NToastNotify
 ## Ekran Görüntüleri
 -Api
 
