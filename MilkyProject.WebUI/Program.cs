@@ -1,5 +1,6 @@
 
 
+using DynamicConsume;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient();
 // Add services to the container.
+builder.Services.AddDynamicConsume("https://localhost:44374/api/");
 
 builder.Services.AddControllersWithViews()
     .AddNToastNotifyToastr(new ToastrOptions()

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DynamicConsume;
+using Microsoft.AspNetCore.Mvc;
 using MilkyProject.DtoLayer.AboutUsServiceDtos;
 using MilkyProject.WebUI.Models;
 
@@ -8,12 +9,12 @@ namespace MilkyProject.WebUI.Areas.Admin.Controllers
     [Route("Admin/{controller}/{action}/{id?}")]
     public class AboutUsServiceController : Controller
     {
-        private readonly DynamicConsume<ResultAboutUsServiceDto> _resultAboutUsService;
-        private readonly DynamicConsume<UpdateAboutUsServiceDto> _updateAboutUsService;
-        private readonly DynamicConsume<CreateAboutUsServiceDto> _createAboutUsService;
-        private readonly DynamicConsume<object> _objectAboutUsService;
+        private readonly Consume<ResultAboutUsServiceDto> _resultAboutUsService;
+        private readonly Consume<UpdateAboutUsServiceDto> _updateAboutUsService;
+        private readonly Consume<CreateAboutUsServiceDto> _createAboutUsService;
+        private readonly Consume<object> _objectAboutUsService;
 
-        public AboutUsServiceController(DynamicConsume<ResultAboutUsServiceDto> resultAboutUsService, DynamicConsume<UpdateAboutUsServiceDto> updateAboutUsService, DynamicConsume<CreateAboutUsServiceDto> createAboutUsService, DynamicConsume<object> objectAboutUsService)
+        public AboutUsServiceController(Consume<ResultAboutUsServiceDto> resultAboutUsService, Consume<UpdateAboutUsServiceDto> updateAboutUsService, Consume<CreateAboutUsServiceDto> createAboutUsService, Consume<object> objectAboutUsService)
         {
             _resultAboutUsService = resultAboutUsService;
             _updateAboutUsService = updateAboutUsService;
