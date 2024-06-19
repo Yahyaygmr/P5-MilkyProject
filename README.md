@@ -9,6 +9,7 @@ Ayrıca admin panelinden ön yüz yönetimi yapılmakta. Admin paneline sadece g
 - Asp .net core mvc
 - EntityFramework
 - NToastNotify
+- DynamicConsume
 ## Ekran Görüntüleri
 -Api
 
